@@ -11,11 +11,11 @@ var browserify = require('browserify'),
 
 /* pathConfig*/
 var entryPoint = './src/scripts/index.js',
-    browserDir = './dist',
+    browserDir = './docs',
     sassWatchPath = './src/sass/*.scss',
     jsWatchPath = './src/**/*.js',
     nunjucksWatchPath = './src/app/**/*.+(html|nunjucks|twig)',
-    htmlWatchPath = './dist/*.html';
+    htmlWatchPath = './'+browserDir+'/*.html';
 /**/
 
 gulp.task('js', function () {
@@ -26,7 +26,7 @@ gulp.task('js', function () {
         .pipe(buffer())
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/js/'))
+        .pipe(gulp.dest('./'+browserDir+'/js/'))
         .pipe(browserSync.reload({stream: true}));
 });
 
@@ -51,7 +51,7 @@ gulp.task('sass', function () {
             cascade: false
         }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./'+browserDir+'/css'))
         .pipe(browserSync.reload({stream: true}));
 });
 
@@ -76,7 +76,7 @@ gulp.task('nunjucks', function() {
             path: ['src/app']
         }))
         // output files in app folder
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest(browserDir))
 });
 
 gulp.task('run', ['browser-sync', 'js', 'sass', 'nunjucks', 'watch']);
