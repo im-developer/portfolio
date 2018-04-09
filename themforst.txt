@@ -1,0 +1,12 @@
+Portfolio is a powerful, responsive, and high-performance portfolio template.
+
+Features list
+HTML5 & CSS3
+Built with Bootstrap 3.3
+SASS files included
+Gulp Tasks
+Responsive design
+Developer friendly code
+Easy to customize
+
+Note: Demo images and videos are for the demo only and are not included in the download.
